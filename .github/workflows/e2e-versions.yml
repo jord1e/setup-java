@@ -264,8 +264,6 @@ jobs:
         run: bash __tests__/verify-java.sh "${{ matrix.version }}" "${{ steps.setup-java.outputs.path }}"
         shell: bash
 
-  # Only Microsoft and Semeru provide AArch64. However, GitHub-hosted runners do not support this architecture.
-
   setup-java-version-both-version-inputs-presents:
     name: ${{ matrix.distribution }} version (should be from input) - ${{ matrix.os }}
     runs-on: ${{ matrix.os }}
