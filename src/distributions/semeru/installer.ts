@@ -99,13 +99,16 @@ export class SemeruDistribution extends JavaBase {
     core.info(`Extracting Java archive...`);
     const extension = getDownloadArchiveExtension();
 
-    const extractedJavaPath = await extractJdkFile(javaArchivePath, extension);
+    const extractedJavaPath: string = await extractJdkFile(
+      javaArchivePath,
+      extension
+    );
 
     const archiveName = fs.readdirSync(extractedJavaPath)[0];
     const archivePath = path.join(extractedJavaPath, archiveName);
     const version = this.getToolcacheVersionName(javaRelease.version);
 
-    const javaPath = await tc.cacheDir(
+    const javaPath: string = await tc.cacheDir(
       archivePath,
       this.toolcacheFolderName,
       version,
